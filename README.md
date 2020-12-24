@@ -34,11 +34,9 @@ app/staic
 
 ### Development
 
-- Main site
-    - http://localhost:8888
+- Main site : http://localhost
 
-- Admin page
-    - http://localhost:8888/admin
+- Admin page : http://localhost/admin
 
 ### Commands
 create a django app
