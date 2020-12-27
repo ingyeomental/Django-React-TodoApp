@@ -38,7 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'rest_framework',
+    # 'service_tastemeasure',
+    # 'api',
 ]
+
+# rest_framwork
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 
 MIDDLEWARE = [
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -82,7 +93,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'admin',
         'HOST': 'mysql',
-        'PORT': 3307,
+        'PORT': 3306,
     }
 }
 
