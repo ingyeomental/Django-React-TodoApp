@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'rest_framework',
-    # 'service_tastemeasure',
+    'service_tastemeasure',
     # 'api',
 ]
 

@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def servicepage(request):
+    return render(request, 'service_tastemeasure/servicepage.html')
