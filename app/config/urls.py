@@ -20,6 +20,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('service_tastemeasure.urls')),
+    path('api/', include('api.urls')),
 ]
 
 """ Take this comment out to enable DebugToolbar
