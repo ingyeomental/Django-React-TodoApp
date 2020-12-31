@@ -15,6 +15,7 @@ services:
     build: ./docker/python
     volumes:
       - ./app:/var/www/html
+      - ./frontend:/var/www/frontend
     working_dir: /var/www/html
     depends_on:
       mysql:
