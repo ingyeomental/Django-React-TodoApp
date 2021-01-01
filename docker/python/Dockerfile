@@ -10,6 +10,9 @@ RUN apk update \
     && apk add mariadb-dev \
     && apk add libffi-dev
 
+# install nodejs & npm
+RUN apk add --update npm
+
 # install pypi packages
 COPY requirements.txt /requirements.txt
 RUN pip install --upgrade pip \

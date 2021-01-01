@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
-    'service_tastemeasure',
-    'api',
+    'todo',
 ]
 
 # rest_framwork
@@ -52,6 +52,7 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -143,3 +144,8 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': 'config.utils.show_toolbar',
 }
 """
+
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:3000/'
+# )
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
