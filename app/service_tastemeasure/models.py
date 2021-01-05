@@ -1,15 +1,15 @@
 from django.db import models
 from django.utils import timezone
-from django.conf import settings
+
+
+class Nicknames(models.Model):
+    nickname_id = models.AutoField(primary_key=True)
+    nickname = models.CharField(max_length=50, unique=True)
 
 
 class BalanceGame(models.Model):
-    date = models.DateTimeField()
-    nickname = models.CharField(primary_key=True, max_length=50)
-
-    # for i in range(1,21):
-    #     globals()[f'q{i}'] = models.PositiveSmallIntegerField()
-
+    datetime = models.DateTimeField(auto_now_add=True)
+    nickname_id = models.ForeignKey(Nicknames, on_delete=True)
     q1 = models.PositiveSmallIntegerField()
     q2 = models.PositiveSmallIntegerField()
     q3 = models.PositiveSmallIntegerField()
