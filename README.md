@@ -1,4 +1,24 @@
-# Django-uWSGI-NGINX-MySQL(Docker-Compose)
+# Simple TODO APP
+> Django-uWSGI-NGINX-MySQL(Docker-Compose) 활용
+
+## Directory Tree
+
+```
+.
+├── app                         # Django App
+│   ├── config
+│   ├── service_tastemeasure
+│   ├── static
+│   └── todo                    # TODO API 개발
+├── docker                      # Dockerfile 및 각 Config 파일
+│   ├── mysql                   
+│   ├── nginx
+│   └── python
+└── frontend                    # React TODO APP
+    ├── node_modules
+    ├── public
+    └── src
+```
 
 
 ## Dependence
@@ -7,69 +27,30 @@
 * [Django](https://www.djangoproject.com/) 2.2
 * [MySQL](https://www.mysql.com/) 8
 
+
 ## Get Started
 
+### Step 1. Create or Start Django + Web + MySQL Container 
 ```
 $ docker-compose up --build
 ```
 
-### Front-End
-
-- HTML 저장 위치
+### Step 2. Start React App in Python Container
 ```
-app/service_tastemeasure
-├── templates
-    └── service_tastemeasure
-        └── <here.html>
+$ cd /var/www/frontend && npm start
 ```
 
-- CSS/JS/IMG 저장 위치
-```
-app/staic
-├── service_tastemeasure
-    ├── css
-    ├── img
-    └── js
-```
+### Step 3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Development
 
-- Main site : http://localhost
+## Development
 
-- Admin page : http://localhost/admin
+- Main site : http://localhost:3000
+- Api page : http://localhost/api
+    - Todo App api : http://localhost/api/todos
 
-### Commands
-create a django app
-```
-$ docker exec python ./manage.py startapp {app_label}
-```
 
-create models from existing database
-```
-$ docker exec python ./manage.py inspectdb > {path/to/models.py}
-```
+## Reference
 
-execute migration
-```
-$ docker exec python ./manage.py migrate
-```
-
-create a migration file
-```
-$ docker exec python ./manage.py makemigrations
-```
-
-create dump fixture files
-```
-$ docker exec python ./manage.py dumpdata {app_label.model} --indent 2 > {path/to/fuxture.json}
-```
-
-load data from fixture files
-```
-$ docker exec python ./manage.py loaddata --verbosity 2 > {path/to/fuxture.json}
-```
-
-create an admin account
-```
-$ docker exec -it python ./manage.py createsuperuser
-```
+- https://github.com/yoshitakameguro/docker-django-uwsgi-nginx-mysql
+- https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
